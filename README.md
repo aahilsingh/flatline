@@ -8,10 +8,10 @@ response in a particular module.
 
 The code is written in R and outputs its analysis in an Excel workbook.
 
-#RStudio
+# RStudio
 Prerequisite libraries: haven, dplyr, writexl, opnxlsx, ggplot2, pdftools
 
-##Inputs:
+## Inputs:
 - survey_data_frame: .sav file (of survey data) in a dataframe format. Recommend using the ‘loadsurvey.df’ function from the source code to convert the .sav file into a dataframe.
 - interview_Number_var: variable name referencing the interview number variable from the dataframe. If there is no variable that tracks the interview number, create a column in the dataframe and populate it with non-duplicate values to track keep track of interviews.
 - enumerator_ID_var: variable name referencing the enumerator ID variable from the dataframe.
@@ -20,5 +20,5 @@ Prerequisite libraries: haven, dplyr, writexl, opnxlsx, ggplot2, pdftools
 - baseline: an integer value for baseline interviews
 - output_file: string in the format “[name].xlsx” for excel file output.
 
-##Output
+## Output
 Excel workbook with module-specific analysis in each tab, summary tab with enumerator and respondent summaries with boxplot for flat % rates (for enumerators) across all modules.
