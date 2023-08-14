@@ -1,4 +1,3 @@
-
 flatline = function(survey_data_frame, interview_Number_var, enumerator_ID_var, list_of_modules, qn_texts, baseline, output_file) {
 
   # Load required libraries
