@@ -1,5 +1,6 @@
+
 flatline = function(survey_data_frame, interview_Number_var, enumerator_ID_var, list_of_modules, qn_texts, baseline, output_file) {
-  
+
   # Load required libraries
   library(haven)
   library(dplyr)
@@ -27,7 +28,7 @@ flatline = function(survey_data_frame, interview_Number_var, enumerator_ID_var, 
   
   module_count <- 1
   
-  
+
   # Storing flagged modules for ints
   int_flagged_modules <- setNames(replicate(length(int_ids), list(character())), unique(int_ids))
   
@@ -294,22 +295,16 @@ flatline = function(survey_data_frame, interview_Number_var, enumerator_ID_var, 
   int_flagged_df$Flag_Count <- NA
   int_flagged_df$enum_id <- NA
   
-  for (i in seq_along(int_flagged_df$Flagged_Modules)) {
+  for (i in seq_along(int_flagged_df$INTNR)) {
     # Split the comma-separated values and count the number of elements
     len <- length(strsplit(int_flagged_df$Flagged_Modules[i], ",")[[1]])
     
     # Assign the count to the 'Flag_Count' column for the current row
     int_flagged_df$Flag_Count[i] <- len
     
-    #noting INTNR for enum_id matching
-    int_id <- int_flagged_df$INTNR[i]
+    enum <- enum_ids[i]
     
-    # Find the corresponding ENUM_ID value from df
-    matching_row <- df[df$INTNR == int_id, ]
-    enum_id_value <- matching_row$ENUM_ID
-    
-    # Assign the ENUM_ID value to the 'enum_id' column
-    int_flagged_df$enum_id[i] <- enum_id_value
+    int_flagged_df$enum_id[i] <- enum
     
   }
   
